@@ -1,0 +1,231 @@
+.novel-cover {
+  display: flex;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 284px;
+  border: 1px solid #6c48b4;
+  border-radius: 25px;
+  background: #412683;
+  box-shadow: 0 5px 0 #352367, 0 16px 30px #45228c1b;
+  color: #fff;
+}
+.novel-cover::before,
+.novel-cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.novel-cover::before { background: url('./art/briefing-room.webp') center 45% / cover; }
+.novel-cover::after { background: linear-gradient(92deg,#35216b 0%,#45278bdd 38%,#572ca281 67%,#33205150 100%); }
+.novel-cover-copy { position: relative; z-index: 1; padding: 31px clamp(22px,3.8vw,44px); width: 63%; }
+.novel-cover-kind { display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; color: #f4ebff; background: #38217088; border: 1px solid #ffffff46; border-radius: 8px; font-size: 10px; letter-spacing: .085em; text-transform: uppercase; font-weight: 810; }
+.novel-cover h1 { color: #fff2ab; font-size: clamp(31px,4.3vw,60px); font-weight: 850; letter-spacing: -.06em; line-height: 1.02; margin-top: 13px; max-width: 440px; text-wrap: balance; text-align: left; }
+.novel-cover p { margin-top: 13px; max-width: 360px; font-size: 15px; color: #f9f2ff; }
+.novel-cover .hero-button { margin-top: 19px; }
+.novel-cover-art { position: absolute; inset: 0 0 0 53%; z-index: 0; pointer-events: none; }
+.novel-cover-art img { position: absolute; bottom: 0; width: auto; max-width: none; height: 95%; object-fit: contain; filter: drop-shadow(0 6px 15px #25133f66); }
+.novel-cover-art .novel-cover-erlan { right: 4%; height: 89%; opacity: .93; }
+.novel-cover-art .novel-cover-tau { bottom: -3%; right: 44%; height: 68%; z-index: 1; transform: rotate(-5deg); }
+.novel-shelf { margin-top: 31px; }
+.novel-chapters { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+.novel-chapter {
+  display: grid;
+  grid-template-columns: 76px minmax(0,1fr) auto;
+  gap: 11px;
+  align-items: center;
+  min-height: 108px;
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  box-shadow: 0 3px 0 #ebe4f6;
+  text-align: left;
+  transition: border-color .16s ease, transform .16s ease;
+}
+.novel-chapter:hover { border-color: #bc9ee9; transform: translateY(-2px); }
+.novel-chapter-portrait { height: 81px; overflow: hidden; position: relative; display: flex; justify-content: center; align-items: flex-end; background: var(--tile); border-radius: 11px; border: 1px solid var(--tile-edge); }
+.novel-chapter-portrait img { position: absolute; width: 89%; max-height: 95%; object-fit: contain; object-position: center bottom; bottom: 0; filter: drop-shadow(0 3px 4px #28164134); }
+.novel-chapter-copy { display: grid; gap: 4px; }
+.novel-chapter-copy small { color: var(--tile-ink); font-weight: 815; font-size: 10px; letter-spacing: .045em; text-transform: uppercase; }
+.novel-chapter-copy small i { font-style: normal; margin: 0 2px; }
+.novel-chapter-copy strong { font-size: clamp(17px,1.9vw,22px); line-height: 1.17; font-weight: 835; letter-spacing: -.035em; }
+.novel-chapter-copy > span { font-size: 12px; line-height: 1.35; color: var(--muted); }
+.novel-chapter-arrow { display: grid; place-items: center; color: var(--tile-ink); background: var(--tile); width: 29px; height: 29px; border-radius: 50%; }
+
+.novel-reader-top,.novel-reader-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.novel-reader-top { margin-bottom: 9px; }
+.novel-reader-count { font-size: 12px; letter-spacing: .06em; font-weight: 810; color: #725c93; text-transform: uppercase; }
+.novel-reader-title h1 { font-size: clamp(24px,3.5vw,42px); font-weight: 850; letter-spacing: -.05em; line-height: 1.08; }
+.novel-reader-title > span { flex-shrink: 0; color: #5e4e79; font-weight: 760; font-size: 12px; }
+.novel-progress { display: flex; gap: 6px; height: 7px; margin-block: 13px 15px; }
+.novel-progress i { background: #e7dff4; border-radius: 8px; flex: 1; }
+.novel-progress .past { background: #af93ec; }
+.novel-progress .now { background: #6c3ed4; }
+.novel-reader { overflow: hidden; border-radius: 21px; border: 1px solid #e0d4f0; box-shadow: 0 4px 0 #e9dff5; background: #fff; }
+.novel-scene { position: relative; isolation: isolate; height: clamp(235px,29vw,365px); overflow: hidden; background: #9c76ae; }
+.novel-backdrop,.novel-scene-light { position: absolute; inset: 0; width: 100%; height: 100%; }
+.novel-backdrop { object-fit: cover; object-position: center 48%; z-index: -3; }
+.novel-scene.tower .novel-backdrop { object-position: center top; transform: scale(1.32); transform-origin: center top; }
+.novel-scene.bench .novel-backdrop { object-position: 83% 72%; width: 123%; max-width: none; transform: translateX(-17%); }
+.novel-scene.storm .novel-backdrop { filter: brightness(.72) saturate(.77) hue-rotate(6deg); object-position: center 40%; }
+.novel-scene-light { z-index: -2; background: linear-gradient(0deg,#24183bcc 0%, #34215621 47%,#35235808 80%); }
+.novel-location { position: absolute; top: 14px; left: 15px; z-index: 2; display: flex; align-items: center; gap: 7px; padding: 7px 10px; color: #fff7fa; background: #2e195cdd; border: 1px solid #ffffff6e; border-radius: 9px; font-weight: 740; font-size: 12px; }
+.novel-cast { position: absolute; inset: 61px 5% 0; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px; align-items: end; }
+.novel-actor { height: 92%; position: relative; display: flex; justify-content: center; align-items: flex-end; transform-origin: center bottom; }
+.novel-actor img { height: 100%; object-fit: contain; object-position: center bottom; filter: saturate(.62) brightness(.76) drop-shadow(0 5px 7px #1d123b78); }
+.novel-actor.tau { height: 74%; }
+.novel-actor.speaking { transform: translateY(-3px) scale(1.045); animation: novel-speaker .25s ease-out; z-index: 1; }
+.novel-actor.speaking img { filter: drop-shadow(0 5px 7px #1d123b74) drop-shadow(0 0 5px #f4e8ff66); }
+.novel-actor span { position: absolute; bottom: 9px; left: 50%; transform: translateX(-50%); border: 1px solid #bfb0d194; background: #2b2042ed; border-radius: 7px; color: #eee5fa; font-size: 11px; font-weight: 760; white-space: nowrap; padding: 3px 7px; }
+.novel-actor.speaking span { background: var(--tile); color: var(--tile-ink); border-color: var(--tile-edge); }
+
+.novel-dialogue { padding: 15px clamp(15px,3vw,25px) 19px; border-top: 3px solid var(--tile-bright); min-height: 133px; }
+.novel-line-meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 9px; }
+.novel-voice { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border: 1px solid var(--tile-edge); border-radius: 7px; color: var(--tile-ink); background: var(--tile); font-size: 13px; font-weight: 830; }
+.novel-line-meta .rule-link { margin: 0; }
+.novel-dialogue > p,.novel-dialogue-copy > p { max-width: 800px; font-size: clamp(16px,1.55vw,20px); line-height: 1.48; }
+.novel-options { margin-top: 16px; }
+.novel-options h2 { color: #675382; font-size: 12px; margin-bottom: 7px; font-weight: 800; }
+.novel-option-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+.novel-option { background: #faf7ff; color: #3d285f; display: flex; align-items: center; gap: 8px; min-height: 45px; border: 1px solid #ddd0ef; border-radius: 11px; padding: 7px 9px; text-align: left; font-size: 13px; font-weight: 745; }
+.novel-option > span { display: grid; place-items: center; background: #eee4fc; color: #65449d; width: 23px; height: 23px; flex-shrink: 0; border-radius: 6px; font-size: 11px; font-weight: 820; }
+.novel-option:hover { border-color: #b59ad8; background: #f4ebff; }
+.novel-option[aria-pressed="true"] { background: #ece0fd; border-color: #9f7bd6; box-shadow: 0 2px 0 #e1d2f5; }
+.novel-reply { margin-top: 10px; border-radius: 11px; background: #f5effe; border: 1px solid #e7dcf5; padding: 8px 10px; color: #55416d; }
+.novel-reply p { font-size: 13px; line-height: 1.46; }
+.novel-reply .rule-link { margin-top: 4px; }
+.novel-ending h2 { font-size: 21px; font-weight: 840; letter-spacing: -.036em; margin-bottom: 7px; }
+/* Equipment shown beside the dialogue and collected in the chapter recap. */
+.novel-dialogue.has-object { display: grid; grid-template-columns: minmax(0,1fr) clamp(159px,24%,239px); align-items: start; gap: clamp(13px,3vw,25px); }
+.novel-dialogue.has-object .novel-line-meta { justify-content: flex-start; gap: 7px 15px; }
+.novel-dialogue.has-object .novel-object-photo { height: 135px; }
+.novel-objects { margin: 19px 0 3px; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; }
+.with-takeaway .novel-scene { height: clamp(170px,19vw,227px); }
+.novel-object-card {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0;
+  width: 100%;
+  padding: 0;
+  border: 1px solid #e4dae9;
+  border-radius: 13px;
+  background: #fff;
+  text-align: left;
+  color: var(--ink);
+  box-shadow: 0 2px 0 #eee8f5;
+  transition: border-color .16s ease, transform .16s ease;
+}
+.novel-object-card:hover { transform: translateY(-2px); border-color: #bca3db; }
+.novel-object-card:active { transform: translateY(0); }
+.novel-object-photo {
+  display: grid;
+  place-items: center;
+  position: relative;
+  height: clamp(109px,12vw,149px);
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  background: radial-gradient(ellipse at 52% 38%,#fff 4%,var(--tile) 96%);
+  border-bottom: 1px solid #e4dae9;
+}
+.novel-object-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 10px 23px 9px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 5px #35234a38);
+}
+.novel-object-zoom {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  color: #64459d;
+  background: #fffdfdeb;
+  border: 1px solid #e3d7f2;
+}
+.novel-object-label { display: flex; flex-direction: column; gap: 5px; padding: 9px 10px 11px; line-height: 1.28; }
+.novel-object-label strong { font-size: 14px; font-weight: 810; }
+.novel-object-label span { color: #5d536e; font-size: 12px; }
+.novel-object-dialog { width: min(555px,calc(100% - 24px)); }
+.novel-object-dialog .novel-object-photo { border-radius: 0; height: min(51dvh,371px); }
+.novel-object-dialog .novel-object-photo img { padding: 24px 35px; }
+.novel-object-dialog .brief-body h2 { margin-top: 0; }
+.novel-object-dialog .brief-body p { font-size: 15px; }
+.novel-object-dialog .rule-link { margin-top: 10px; }
+
+.novel-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 9px; border-top: 1px solid var(--border); background: #faf7ff; padding: 12px clamp(13px,2.8vw,25px) 15px; }
+.novel-controls .btn:first-child { margin-right: auto; }
+.novel-controls .btn:disabled { opacity: .65; }
+.novel-keyboard { margin-top: 11px; text-align: right; color: var(--muted); font-size: 11px; }
+
+@keyframes novel-speaker {
+  from { opacity: .85; transform: translateY(1px); }
+  to { opacity: 1; transform: translateY(-3px) scale(1.045); }
+}
+
+@media (max-width:1040px) {
+  .novel-chapter { grid-template-columns: 62px minmax(0,1fr) auto; }
+  .novel-cover-art .novel-cover-erlan { right: -2%; height: 81%; }
+  .novel-cover-art .novel-cover-tau { right: 38%; height: 59%; }
+}
+
+@media (max-width:690px) {
+  .novel-cover { min-height: 270px; }
+  .novel-cover-copy { width: 79%; padding: 19px 14px 24px; }
+  .novel-cover h1 { max-width: 315px; font-size: clamp(28px,7vw,40px); }
+  .novel-cover p { font-size: 13px; max-width: min(285px,100%); }
+  .novel-cover::after { background: linear-gradient(92deg,#35216b 9%,#482591e6 47%,#572ca26b 100%); }
+  .novel-cover-art { inset-inline-start: 62%; opacity: .83; }
+  .novel-cover-art .novel-cover-tau { right: -5%; height: 54%; }
+  .novel-cover-art .novel-cover-erlan { display: none; }
+  .novel-chapters { grid-template-columns: minmax(0,1fr); gap: 10px; }
+  .novel-chapter { min-height: 80px; padding: 8px; gap: 9px; }
+  .novel-chapter-portrait { height: 63px; }
+  .novel-shelf { margin-top: 23px; }
+  .novel-progress { margin-block: 9px 11px; }
+  .novel-reader { border-radius: 16px; }
+  .novel-reader-title > span { font-size: 10px; }
+  .novel-scene { height: clamp(171px,51vw,245px); }
+  .novel-cast { inset: 51px 2% 0; gap: 4px; }
+  .novel-actor { min-width: 0; }
+  .novel-actor span { padding-inline: 4px; font-size: 10px; bottom: 5px; }
+  .novel-location { font-size: 11px; top: 8px; left: 8px; padding: 5px 7px; }
+  .novel-dialogue { min-height: 126px; }
+  .novel-objects { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-top: 13px; }
+  .novel-dialogue.has-object { gap: 12px; grid-template-columns: minmax(0,1fr); }
+  .novel-dialogue.has-object .novel-object-card { grid-template-rows: auto; grid-template-columns: 95px minmax(0,1fr); align-items: stretch; }
+  .novel-dialogue.has-object .novel-object-photo { height: 80px; border-radius: 12px 0 0 12px; border-bottom: 0; border-right: 1px solid #e4dae9; }
+  .novel-dialogue.has-object .novel-object-label { justify-content: center; }
+  .novel-dialogue.has-object .novel-object-photo img { padding: 8px 14px 8px 8px; }
+  .novel-dialogue.has-object .novel-object-zoom { top: 4px; right: 4px; width: 20px; height: 20px; }
+  .novel-dialogue.has-object .novel-object-zoom svg { width: 13px; height: 13px; }
+  .novel-object-label strong { font-size: 13px; }
+  .novel-object-label span { font-size: 11px; }
+  .novel-object-photo img { padding: 10px 13px 7px; }
+  .with-takeaway .novel-scene { height: clamp(130px,42vw,174px); }
+  .novel-option-grid { grid-template-columns: minmax(0,1fr); }
+  .novel-controls { justify-content: space-between; }
+  .novel-controls .btn { min-height: 43px; padding: 8px 11px; }
+  .novel-keyboard { display: none; }
+}
+@media (max-width:355px) {
+  .tab { font-size: 9px; }
+  .novel-reader-title { align-items: baseline; }
+  .novel-option { font-size: 12px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .novel-actor.speaking { animation: none; }
+}
